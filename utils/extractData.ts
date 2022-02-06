@@ -1,6 +1,7 @@
 import stringSanitize from './stringSanitize';
 import axios from 'axios';
 import parse, { HTMLElement } from 'node-html-parser';
+import PasteModel from '../mongo/model';
 
 const dataExtractor = async (elements: HTMLElement[]) => {
   //   const data = [];

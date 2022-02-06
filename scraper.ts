@@ -2,6 +2,8 @@ import axios from 'axios';
 import { parse } from 'node-html-parser';
 import dataExtractor from './utils/extractData';
 import * as cron from 'node-cron';
+import PasteModel from './mongo/model';
+import { connection } from 'mongoose';
 
 const strongholdUrl =
   'http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all';
@@ -14,6 +16,7 @@ const scraper = async (url: string, divSelector: string) => {
     const html = parse(request.data);
     const elements = html.querySelectorAll(divSelector);
     await dataExtractor(elements);
+    connection.close();
   } catch (error) {
     console.log(error);
   }
