@@ -13,12 +13,13 @@ const scraper = async (url: string, divSelector: string) => {
     });
     const html = parse(request.data);
     const elements = html.querySelectorAll(divSelector);
-    const data = dataExtractor(elements);
+    await dataExtractor(elements);
   } catch (error) {
     console.log(error);
   }
 };
-// scraper(strongholdUrl, '#list > .row > .col-sm-12');
+
+scraper(strongholdUrl, '#list > .row');
 cron.schedule('*/2 * * * *', () => {
   scraper(strongholdUrl, '#list > .row');
 });
