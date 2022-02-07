@@ -25,8 +25,8 @@ export default dataExtractor;
 const parseAuthor = (elem: HTMLElement) => {
   const authorElem = elem.querySelector('.col-sm-6');
   if (!authorElem) return;
-  const author = authorElem.innerText.match(/(?<=by\s)(.*)(?=\sat)/)[0];
-  return author;
+  const author = authorElem.innerText.match(/(?<=by\s)(.*)(?=\sat)/);
+  return author ? author[0] : '';
 };
 const parseTitle = (elem: HTMLElement) => {
   const titleElem = elem.querySelector('h4');
@@ -43,8 +43,8 @@ const parseContent = async (elem: HTMLElement) => {
 const parseDate = (elem: HTMLElement) => {
   const dateElem = elem.querySelector('.col-sm-6');
   if (!dateElem) return;
-  const date = dateElem.innerText.match(/(?<=at\s)(.*)/)[0];
-  return date;
+  const date = dateElem.innerText.match(/(?<=at\s)(.*)/);
+  return date ? new Date(date[0]) : new Date();
 };
 
 const contentExtractor = async (a: HTMLElement) => {
@@ -54,8 +54,9 @@ const contentExtractor = async (a: HTMLElement) => {
     });
     const html = parse(request.data);
     const content = html.querySelector('.text');
-    return content.innerText;
+    return content ? content.innerText : '';
   } catch (error) {
     console.log(error);
+    return '';
   }
 };
