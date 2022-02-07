@@ -1,9 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import { connect, model, Schema } from 'mongoose';
-connect(process.env.DATABASE).then(() => {
-  console.log('Connected to DB');
-});
+if (process.env.DATABASE) {
+  connect(process.env.DATABASE).then(() => {
+    console.log('Connected to DB');
+  });
+}
 
 interface Paste {
   author: string;
