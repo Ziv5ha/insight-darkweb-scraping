@@ -8,12 +8,12 @@ const dataExtractor = async (elements: HTMLElement[]) => {
   for (const elem of elements) {
     const author = parseAuthor(elem);
     const title = parseTitle(elem);
-    const content = parseContent(elem);
+    const content = await parseContent(elem);
     const date = parseDate(elem);
     if (!(author && title && content && date)) continue;
     // data.push({ author, title, content, date });
     const paste = new PasteModel({ author, title, content, date });
-    if (!(await PasteModel.exists({ title }))) {
+    if (!(await PasteModel.exists({ title, author, content }))) {
       await paste.save();
     }
   }

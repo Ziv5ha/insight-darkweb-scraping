@@ -6,6 +6,6 @@ const app = express();
 app.use(cors());
 app.use('/getPestes', getPestes);
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log('lestening on port 3000');
 });
