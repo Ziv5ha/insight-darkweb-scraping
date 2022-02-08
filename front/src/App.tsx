@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Analytics from './components/analytics';
 const url = 'http://localhost:8080/';
 function App() {
   const [data, setData] = useState<Paste[]>([]);
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className='App'>
+      <Analytics analytics={analytics} />
     </div>
   );
 }
