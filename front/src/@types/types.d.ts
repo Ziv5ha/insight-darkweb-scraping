@@ -11,3 +11,10 @@ declare interface AnalyticsType {
   money: number;
   other: number;
 }
+declare interface AnalyticsWithoutTotal {
+  total?: number;
+  porn: number;
+  dataleaks: number;
+  money: number;
+  other: number;
+}
