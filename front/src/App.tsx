@@ -11,11 +11,13 @@ function App() {
     money: 0,
     other: 0,
   });
+  const [traffic, setTraffic] = useState(generateTrafficObj());
   useEffect(() => {
     let source = new EventSource(url);
     source.onmessage = (e) => {
       setData(JSON.parse(e.data).pastes);
       setAnalytics(JSON.parse(e.data).analytics);
+      setTraffic(JSON.parse(e.data).traffic);
     };
     source.onerror = () => {
       source.close();
@@ -24,10 +26,20 @@ function App() {
 
   return (
     <div className='App'>
-      <Analytics analytics={analytics} />
+      <Analytics analytics={analytics} traffic={traffic} />
       <Feed data={data} />
     </div>
   );
 }
 
 export default App;
+
+// Helpers
+
+const generateTrafficObj = () => {
+  const traffic: { [key: number]: number } = {};
+  for (let i = 0; i < 24; i++) {
+    traffic[i] = 0;
+  }
+  return traffic;
+};
