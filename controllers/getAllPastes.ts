@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { analysis } from '../helpers/analysis';
+import { traffic } from '../helpers/traffic';
 import { clients } from '../middlewares/clients';
 import PasteModel from '../mongo/model';
 
@@ -11,7 +12,8 @@ export const retrieveData = async (
   try {
     const pastes = await PasteModel.find({});
     const analytics = await analysis();
-    const data = { pastes, analytics };
+    const trafficObj = await traffic();
+    const data = { pastes, analytics, traffic: trafficObj };
     clients.forEach((client) =>
       client.write(`data: ${JSON.stringify(data)}\n\n`)
     );
