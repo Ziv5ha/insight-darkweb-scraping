@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Analytics from './components/analytics';
 import Feed from './components/Feed';
+import Navbar from './components/Navbar';
 const url = 'http://localhost:8080/';
+
 function App() {
+  const [displayFeed, setDisplayFeed] = useState(0);
   const [data, setData] = useState<Paste[]>([]);
   const [analytics, setAnalytics] = useState<AnalyticsType>({
     total: 0,
@@ -26,8 +29,11 @@ function App() {
 
   return (
     <div className='App'>
-      <Analytics analytics={analytics} traffic={traffic} />
-      <Feed data={data} />
+      <Navbar setDisplayFeed={setDisplayFeed} />
+      <div className='page-container' style={{ left: `${displayFeed}vw` }}>
+        <Analytics analytics={analytics} traffic={traffic} />
+        <Feed data={data} />
+      </div>
     </div>
   );
 }
