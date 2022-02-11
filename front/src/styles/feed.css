@@ -1,0 +1,62 @@
+.feed-container-outer {
+  width: 100vw;
+  height: 90vh;
+}
+.feed-container-inner {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+.feed {
+  margin: 7% 0;
+  border-radius: 0.4em;
+  box-shadow: 0 0 0.3em 0.05em rgb(73, 73, 73);
+  padding: 0.5em;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+.feed p {
+  position: relative;
+  max-width: 80%;
+  left: 2%;
+  font-size: 0.9em;
+  overflow-wrap: break-word;
+}
+.feed h4 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.feed h5 {
+  margin: 0;
+  font-weight: 500;
+}
+.feed summary {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  justify-content: space-between;
+  padding: 0.3em;
+}
+.feed details {
+  margin: 0.3em;
+  padding: 0.3em;
+  font-size: 0.8em;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.3em 0.05em rgb(88, 88, 88);
+}
+
+/* SCROLLBAR  */
+::-webkit-scrollbar {
+  width: 0.7em;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0.5em;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.5em;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

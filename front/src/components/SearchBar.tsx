@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import _ from 'lodash';
+import '../styles/search.css';
 
 export default function SearchBar({
   setLocalData,
@@ -31,7 +32,7 @@ export default function SearchBar({
   // };
   const debouncedFilter = _.debounce(filterLocally, 300);
   return (
-    <div>
+    <div className='search-container'>
       <input
         ref={filterValues}
         onKeyDown={debouncedFilter}

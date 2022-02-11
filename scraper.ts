@@ -16,7 +16,6 @@ const scraper = async (url: string, divSelector: string) => {
     const html = parse(request.data);
     const elements = html.querySelectorAll(divSelector);
     await dataExtractor(elements);
-    connection.close();
   } catch (error) {
     console.log(error);
   }

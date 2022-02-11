@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Post from './Post';
 import SearchBar from './SearchBar';
+import '../styles/feed.css';
 
 export default function Feed({ data }: { data: Paste[] }) {
   const [localData, setLocalData] = useState<Paste[]>([]);
@@ -14,9 +15,11 @@ export default function Feed({ data }: { data: Paste[] }) {
     ));
   };
   return (
-    <div>
-      <SearchBar setLocalData={setLocalData} data={data} />
-      <div className='feed'>{renderFeed()}</div>
+    <div className='feed-container-outer'>
+      <div className='feed-container-inner'>
+        <SearchBar setLocalData={setLocalData} data={data} />
+        <div className='feed'>{renderFeed()}</div>
+      </div>
     </div>
   );
 }
