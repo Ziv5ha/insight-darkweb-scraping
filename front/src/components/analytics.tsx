@@ -3,6 +3,7 @@ import PieChart from './PieChart';
 import TrafficChart from './TrafficChart';
 
 import Progress from './Progress';
+import '../styles/analytics.css';
 
 export default function Analytics({
   analytics,
@@ -25,6 +26,7 @@ export default function Analytics({
   return (
     <div>
       {parseAnalytics()}
+    <div className='analytics-container'>
       <div className='pie-chart-container'>
         <PieChart analytics={analytics} />
       </div>

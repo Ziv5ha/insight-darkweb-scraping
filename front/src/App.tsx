@@ -8,7 +8,7 @@ function App() {
     total: 0,
     porn: 0,
     dataleaks: 0,
-    money: 0,
+    currency: 0,
     other: 0,
   });
   const [traffic, setTraffic] = useState(generateTrafficObj());

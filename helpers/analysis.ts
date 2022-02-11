@@ -6,7 +6,18 @@ export const analysis = async () => {
     const initialData = await PasteModel.find({});
     const [filteredPorn, filterOutPorn] = filteredArrayesByKeyword(
       initialData,
-      ['porn', 'p0rn', 'sex', 's3x']
+      [
+        'porn',
+        'p0rn',
+        'sex',
+        's3x',
+        'orgy',
+        'fuck',
+        'girl',
+        'rape',
+        'hot',
+        'pussy',
+      ]
     );
     const [filteredDataleaks, filterOutDataleaks] = filteredArrayesByKeyword(
       filterOutPorn,
@@ -14,18 +25,18 @@ export const analysis = async () => {
     );
     const [filteredDrugs, filterOutDrugs] = filteredArrayesByKeyword(
       filterOutDataleaks,
-      ['cocaine', 'buprenorphine', 'meth', 'hashish']
+      ['cocaine', 'buprenorphine', 'meth', 'hashish', 'drug', 'mushroom']
     );
     const [filteredMoney, filterOutMoney] = filteredArrayesByKeyword(
       filterOutDrugs,
-      ['bitcoin', 'paypal']
+      ['bitcoin', 'paypal', 'cryptocurrency', 'etherium']
     );
     return {
       total: initialData.length,
       porn: filteredPorn.length,
       dataleaks: filteredDataleaks.length,
       drugs: filteredDrugs.length,
-      money: filteredMoney.length,
+      currency: filteredMoney.length,
       other: filterOutMoney.length,
     };
   } catch (error) {

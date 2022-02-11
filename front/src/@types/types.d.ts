@@ -8,13 +8,13 @@ declare interface AnalyticsType {
   total: number;
   porn: number;
   dataleaks: number;
-  money: number;
+  currency: number;
   other: number;
 }
 declare interface AnalyticsWithoutTotal {
   total?: number;
   porn: number;
   dataleaks: number;
-  money: number;
+  currency: number;
   other: number;
 }
