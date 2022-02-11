@@ -1,0 +1,42 @@
+.analytics-container {
+  position: relative;
+  display: flex;
+  min-height: 90vh;
+  height: fit-content;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  justify-content: space-around;
+}
+.pie-chart-container {
+  text-align: center;
+  margin-top: 0;
+  width: 45%;
+  /* height: auto; */
+  min-width: 15em;
+  max-width: 35em;
+}
+.traffic-chart-container {
+  text-align: center;
+  width: 45%;
+  min-width: 10em;
+  max-width: 50em;
+}
+p {
+  position: absolute;
+  top: -3%;
+  right: 5%;
+}
+@media only screen and (max-width: 750px) {
+  .analytics-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .pie-chart-container {
+    margin-top: 5%;
+  }
+  .traffic-chart-container {
+    width: 80%;
+  }
+}

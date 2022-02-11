@@ -1,8 +1,6 @@
 import React from 'react';
 import PieChart from './PieChart';
 import TrafficChart from './TrafficChart';
-
-import Progress from './Progress';
 import '../styles/analytics.css';
 
 export default function Analytics({
@@ -12,25 +10,15 @@ export default function Analytics({
   analytics: AnalyticsType;
   traffic: { [key: number]: number };
 }) {
-  const parseAnalytics = () => {
-    const analyticsElem: JSX.Element[] = [];
-    for (const [key, value] of Object.entries(analytics)) {
-      if (key === 'total') continue;
-      analyticsElem.push(
-        <Progress key={key} label={key} value={value} total={analytics.total} />
-      );
-    }
-    return analyticsElem;
-  };
-
   return (
-    <div>
-      {parseAnalytics()}
     <div className='analytics-container'>
+      <p>{analytics.total} pastes collected</p>
       <div className='pie-chart-container'>
+        Distribution
         <PieChart analytics={analytics} />
       </div>
       <div className='traffic-chart-container'>
+        Traffic
         <TrafficChart traffic={traffic} />
       </div>
     </div>
