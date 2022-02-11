@@ -1,0 +1,13 @@
+body {
+  overflow-x: hidden;
+}
+.page-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 200vw;
+  top: 8vh;
+  height: 20px;
+  justify-content: space-between;
+  transition: all 0.3s;
+}

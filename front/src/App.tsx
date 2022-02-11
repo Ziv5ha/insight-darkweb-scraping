@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Analytics from './components/analytics';
 import Feed from './components/Feed';
 import Navbar from './components/Navbar';
+import './styles/app.css';
 const url = 'http://localhost:8080/';
 
 function App() {
