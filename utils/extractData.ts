@@ -47,7 +47,7 @@ const parseDate = (elem: HTMLElement) => {
 const contentExtractor = async (a: HTMLElement) => {
   try {
     const request = await axios.get(a.attrs.href, {
-      proxy: { port: 8118, host: 'localhost' },
+      proxy: { port: 8118, host: 'tor-proxy' },
     });
     const html = parse(request.data);
     const content = html.querySelector('.text');

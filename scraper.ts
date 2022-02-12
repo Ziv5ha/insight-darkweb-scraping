@@ -11,7 +11,7 @@ const strongholdUrl =
 export const scraper = async (url: string, divSelector: string) => {
   try {
     const request = await axios.get(url, {
-      proxy: { port: 8118, host: 'localhost' },
+      proxy: { port: 8118, host: 'tor-proxy' },
     });
     const html = parse(request.data);
     const elements = html.querySelectorAll(divSelector);
