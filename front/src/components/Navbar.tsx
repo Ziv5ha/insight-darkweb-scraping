@@ -15,7 +15,7 @@ export default function Navbar({
 
   return (
     <div className='navbar'>
-      <h1>PlaceHolder</h1>
+      <h1>Dark-Web Scrapper</h1>
       <ul>
         <li onClick={showAnalytics}>Analytics</li>
         <li onClick={showFeed}>Feed</li>
