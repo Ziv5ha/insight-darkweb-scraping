@@ -1,10 +1,16 @@
-import { filteredArrayesByKeyword } from './analysisHelpers';
+import { filteredArrayesByKeywords } from './analysisHelpers';
 import PasteModel from '../mongo/model';
 
+/**
+ * Gathers analytics from db
+ *
+ * categories: porn, dataleaks, drugs, currency and other
+ * @return {Object} containing the number of pastes in every category
+ */
 export const analysis = async () => {
   try {
     const initialData = await PasteModel.find({});
-    const [filteredPorn, filterOutPorn] = filteredArrayesByKeyword(
+    const [filteredPorn, filterOutPorn] = filteredArrayesByKeywords(
       initialData,
       [
         'porn',
@@ -19,15 +25,15 @@ export const analysis = async () => {
         'pussy',
       ]
     );
-    const [filteredDataleaks, filterOutDataleaks] = filteredArrayesByKeyword(
+    const [filteredDataleaks, filterOutDataleaks] = filteredArrayesByKeywords(
       filterOutPorn,
       ['information', 'data', 'leak', 'database', 'credit', 'password']
     );
-    const [filteredDrugs, filterOutDrugs] = filteredArrayesByKeyword(
+    const [filteredDrugs, filterOutDrugs] = filteredArrayesByKeywords(
       filterOutDataleaks,
       ['cocaine', 'buprenorphine', 'meth', 'hashish', 'drug', 'mushroom']
     );
-    const [filteredMoney, filterOutMoney] = filteredArrayesByKeyword(
+    const [filteredMoney, filterOutMoney] = filteredArrayesByKeywords(
       filterOutDrugs,
       ['bitcoin', 'paypal', 'cryptocurrency', 'etherium']
     );
