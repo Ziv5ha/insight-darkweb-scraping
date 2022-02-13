@@ -32,5 +32,5 @@ In this project I was asked to develop a scraping, analysis and presentation pla
 
 ## Screenshots
 
-<img src="./assets/Analytics.JPG" alt="Analytics screenshot">
-<img src="./assets/Feed.JPG" alt="Feed screenshot">
+<img src="./assets/Analytics.jpg" alt="Analytics screenshot">
+<img src="./assets/Feed.jpg" alt="Feed screenshot">
